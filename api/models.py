@@ -2,15 +2,6 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
-class VehicleModel(models.Model):
-    """ Vehicle Model model """
-    make = models.CharField(max_length=63)
-    model = models.CharField(max_length=63)
-
-    def __str__(self):
-        return f'{self.make} {self.model}'
-
-
 class Vehicle(models.Model):
     """ Vehicle model """
 
@@ -27,7 +18,7 @@ class Vehicle(models.Model):
         INACTIVE = 'IN', _('Inactivo')
 
     license_plate = models.CharField(max_length=15)
-    model = models.ForeignKey(VehicleModel, on_delete=models.PROTECT)
+    model = models.CharField(max_length=255)
     status = models.CharField(
         max_length=2,
         choices=StatusChoices.choices,

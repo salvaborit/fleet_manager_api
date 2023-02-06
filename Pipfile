@@ -10,6 +10,7 @@ django-environ = "*"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+drf-nested-routers = "*"
 
 [dev-packages]
 autopep8 = "*"

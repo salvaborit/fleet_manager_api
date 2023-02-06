@@ -15,6 +15,11 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = []
 
+# Prevents number convertion to strings
+REST_FRAMEWORK = {
+    'COERCE_DECIMAL_TO_STRING': False
+}
+
 INSTALLED_APPS = [
     # defaults
     'django.contrib.admin',

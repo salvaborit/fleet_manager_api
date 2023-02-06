@@ -4,8 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+django = "*"
+mysqlclient = "*"
 
 [dev-packages]
+autopep8 = "*"
 
 [requires]
 python_version = "3.11"

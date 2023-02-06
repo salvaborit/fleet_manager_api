@@ -1,7 +1,5 @@
 # Fleet Manager API
 
-Manage your fleet with greater efficiency and safety
-
 <h3>Manage your fleet with greater efficiency and safety</h3>
 
 ### Team
@@ -13,11 +11,11 @@ Manage your fleet with greater efficiency and safety
 
 ### Endpoints and Methods
 
-`vehicles/` to GET vehicle list or POST a new vehicle
-`vehicles/1/` to GET vehicle of id 1
-
-`drivers/` to GET driver list or POST a new driver
-`drivers/1/` to GET driver of id 1
-
-`documentations/` to GET documentations list
-`documentations/1/` to GET documentation of id 1
+`vehicles/` to GET vehicle list or POST a new vehicle<br>
+`vehicles/1/` to GET vehicle of id 1<br>
+<br>
+`drivers/` to GET driver list or POST a new driver<br>
+`drivers/1/` to GET driver of id 1<br>
+<br>
+`documentations/` to GET documentations list<br>
+`documentations/1/` to GET documentation of id 1<br>

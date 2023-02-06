@@ -17,6 +17,8 @@
 `drivers/` to <b>get</b> driver list or <b>post</b> a new driver<br>
 `drivers/1/` to <b>get</b>, <b>put</b>, or <b>delete</b> driver of id 1<br>
 <br>
-`documentations/` to <b>get</b> documentations list or <b>post</b> a new documentation<br>
-`documentations/1/` to <b>get</b>, <b>put</b>, or <b>delete</b> documentation of id 1<br>
-
+`vehicle-docs/` to <b>get</b> vehicle documentation list or <b>post</b> a new documentation<br>
+`vehicle-docs/1/` to <b>get</b>, <b>put</b>, or <b>delete</b> vehicle documentation of id 1<br>
+<br>
+`driver-docs/` to <b>get</b> driver documentation list or <b>post</b> a new documentation<br>
+`driver-docs/1/` to <b>get</b>, <b>put</b>, or <b>delete</b> driver documentation of id 1<br>

@@ -11,7 +11,7 @@ router = SimpleRouter()
 router.register(r'vehicles', VehicleViewSet)
 router.register(r'drivers', VehicleViewSet)
 router.register(r'models', VehicleModelViewSet)
-router.register(r'vehicle_docs', VehicleDocumentationViewSet)
-router.register(r'driver_docs', DriverDocumentationViewSet)
+router.register(r'vehicle-docs', VehicleDocumentationViewSet)
+router.register(r'driver-docs', DriverDocumentationViewSet)
 
 urlpatterns = router.urls

@@ -1,10 +1,14 @@
 from django.urls import path
-from . import views
 from rest_framework.routers import SimpleRouter
 
-router = SimpleRouter()
-router.register('test', views.TestViewSet)
+from .views import VehicleViewSet
+from .views import VehicleModelViewSet
+from .views import DocumentationViewSet
 
-urlpatterns = [
-    path('status/', views.APIStatus.as_view(), name='api_status'),
-] + router.urls
+
+router = SimpleRouter()
+router.register(r'vehicles', VehicleViewSet)
+router.register(r'models', VehicleModelViewSet)
+router.register(r'documentations', DocumentationViewSet)
+
+urlpatterns = router.urls

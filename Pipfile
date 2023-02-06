@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 django = "*"
 mysqlclient = "*"
+django-environ = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
 
 [dev-packages]
 autopep8 = "*"

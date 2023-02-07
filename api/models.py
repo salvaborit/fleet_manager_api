@@ -96,7 +96,7 @@ class VehicleDocumentation(models.Model):
         default=StatusChoices.VALID)
 
     def __str__(self):
-        return f'{self.status}, {self.title}, expires in: {self.valid_thru}'
+        return f'{self.title} de {self.vehicle}, expira en {self.valid_thru}'
 
 
 class DriverDocumentation(models.Model):
@@ -124,4 +124,4 @@ class DriverDocumentation(models.Model):
         default=StatusChoices.VALID)
 
     def __str__(self):
-        return f'{self.title}, {self.status}, expiry:{self.valid_thru}'
+        return f'{self.title} de {self.driver}, expira en {self.valid_thru}'

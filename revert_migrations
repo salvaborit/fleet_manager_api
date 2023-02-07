@@ -1,3 +1,4 @@
 #!/bin/bash
-./manage.py makemigrations --empty $1
-./manage.py migrate $1 zero
+# first delete migrations folder
+./manage.py makemigrations $1 --empty
+./manage.py makemigrations

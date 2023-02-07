@@ -20,7 +20,7 @@ class DriverSerializer(serializers.ModelSerializer):
 
 class VehicleDocumentationSerializer(serializers.ModelSerializer):
     vehicle = serializers.PrimaryKeyRelatedField(
-        many=True,
+        many=False,
         queryset=Vehicle.objects.all())
 
     class Meta:
@@ -30,7 +30,7 @@ class VehicleDocumentationSerializer(serializers.ModelSerializer):
 
 class DriverDocumentationSerializer(serializers.ModelSerializer):
     driver = serializers.PrimaryKeyRelatedField(
-        many=True,
+        many=False,
         queryset=Driver.objects.all())
 
     class Meta:

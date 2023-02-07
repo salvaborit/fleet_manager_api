@@ -12,6 +12,7 @@ markdown = "*"
 django-filter = "*"
 drf-nested-routers = "*"
 django-debug-toolbar = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 autopep8 = "*"

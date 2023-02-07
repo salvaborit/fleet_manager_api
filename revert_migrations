@@ -1,0 +1,3 @@
+#!/bin/bash
+./manage.py makemigrations --empty $1
+./manage.py migrate $1 zero

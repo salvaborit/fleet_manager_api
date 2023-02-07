@@ -1,5 +1,7 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+import re
 
 
 class Vehicle(models.Model):
@@ -17,8 +19,10 @@ class Vehicle(models.Model):
         REPAIR = 'TA', _('Taller')
         INACTIVE = 'IN', _('Inactivo')
 
-    license_plate = models.CharField(max_length=15)
-    model = models.CharField(max_length=255)
+    license_plate = models.CharField(
+        max_length=15)
+    model = models.CharField(
+        max_length=63)
     status = models.CharField(
         max_length=2,
         choices=StatusChoices.choices,
@@ -28,11 +32,8 @@ class Vehicle(models.Model):
         choices=UsageTypeChoices.choices,
         default=UsageTypeChoices.KMS)
     usage = models.PositiveIntegerField()
-    # documentation = models.ForeignKey(
-    #     VehicleDocumentation,
-    #     on_delete=models.DO_NOTHING,
-    #     null=True,
-    #     blank=True)
+    notes = models.TextField(
+        blank=True)
 
     def __str__(self):
         return f'{self.license_plate} {self.model}'
@@ -41,27 +42,30 @@ class Vehicle(models.Model):
 class Driver(models.Model):
     """ Driver Model """
     class IDTypeChoices(models.TextChoices):
+        """ Choices for the driver id type """
         CI = 'CI', _('Cedula')
         PASSPORT = 'PA', _('Pasaporte')
+
+    def validate_alphanumeric(value):
+        if not re.match('^[0-9a-zA-Z]+$', value):
+            raise ValidationError(
+                'ID number should only contain alphanumeric characters.')
 
     first_name = models.CharField(max_length=63)
     last_name = models.CharField(max_length=63)
     address = models.CharField(max_length=255)
     email = models.CharField(max_length=127)
     phone = models.CharField(max_length=31)
-    dob = models.DateField(
+    birthdate = models.DateField(
         auto_now=False,
         auto_now_add=False)
     id_type = models.CharField(
         max_length=2,
         choices=IDTypeChoices.choices,
         default=IDTypeChoices.CI)
-    id_number = models.CharField(max_length=31)
-    # documentation = models.ForeignKey(
-    #     DriverDocumentation,
-    #     on_delete=models.DO_NOTHING,
-    #     null=True,
-    #     blank=True)
+    id_number = models.CharField(
+        max_length=31,
+        validators=[validate_alphanumeric])
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
@@ -71,12 +75,15 @@ class VehicleDocumentation(models.Model):
     """ Vehicle Documentation model """
 
     class StatusChoices(models.TextChoices):
-        """ Choices for the type of vehicle usage """
+        """ Choices for the status of the vehicle documentation """
         VALID = 'VAL', _('Valido')
         EXPIRED = 'EXP', _('Expirado')
 
-    title = models.CharField(max_length=256)
-    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, null=True)
+    title = models.CharField(max_length=255)
+    vehicle = models.ForeignKey(
+        Vehicle,
+        on_delete=models.CASCADE,
+        null=True)
     valid_thru = models.DateField(
         auto_now=False,
         auto_now_add=False)
@@ -96,12 +103,15 @@ class DriverDocumentation(models.Model):
     """ Driver Documentation model """
 
     class StatusChoices(models.TextChoices):
-        """ Choices for the type of vehicle usage """
+        """ Choices for the status of the driver documentation """
         VALID = 'VAL', _('Valido')
         EXPIRED = 'EXP', _('Expirado')
 
     title = models.CharField(max_length=256)
-    driver = models.ForeignKey(Driver, on_delete=models.CASCADE, null=True)
+    driver = models.ForeignKey(
+        Driver,
+        on_delete=models.CASCADE,
+        null=True)
     valid_thru = models.DateField(
         auto_now=False,
         auto_now_add=False)

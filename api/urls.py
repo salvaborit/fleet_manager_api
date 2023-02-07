@@ -7,9 +7,9 @@ from .views import DriverDocumentationViewSet
 
 
 router = SimpleRouter()
-router.register('vehicles', VehicleViewSet)
-router.register('drivers', VehicleViewSet)
-router.register('vehicle-docs', VehicleDocumentationViewSet)
-router.register('driver-docs', DriverDocumentationViewSet)
+router.register(r'vehicles', VehicleViewSet)
+router.register(r'drivers', VehicleViewSet)
+router.register(r'vehicle-docs', VehicleDocumentationViewSet)
+router.register(r'driver-docs', DriverDocumentationViewSet)
 
 urlpatterns = router.urls

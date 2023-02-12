@@ -25,7 +25,7 @@ class VehicleFilter(filters.FilterSet):
     max_usage = filters.NumberFilter(
         field_name='usage',
         lookup_expr='lte')
-    notes = filters.NumberFilter(
+    notes = filters.CharFilter(
         field_name='notes',
         lookup_expr='contains')
 

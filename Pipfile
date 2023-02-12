@@ -13,6 +13,7 @@ django-filter = "*"
 drf-nested-routers = "*"
 django-debug-toolbar = "*"
 django-crispy-forms = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -16,6 +16,20 @@ from .filters import VehicleDocumentationFilter
 from .filters import DriverFilter
 from .filters import DriverDocumentationFilter
 
+from rest_framework import generics
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+
+# @api_view(['GET'])
+# def VehicleViewSet(request, format=None):
+#     """ route 'tasks/' """
+
+#     if request.method == 'GET':
+#         tasks = Vehicle.objects.all()
+#         serializer = VehicleSerializer(tasks, many=True)
+#         return Response({"tasks": serializer.data}, headers={'Access-Control-Allow-Headers': 'access-control-allow-origin'})
 
 class VehicleViewSet(ModelViewSet):
     queryset = Vehicle.objects.all()

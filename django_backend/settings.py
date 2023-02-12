@@ -15,16 +15,6 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = []
 
-# Prevents number convertion to strings
-REST_FRAMEWORK = {
-    'COERCE_DECIMAL_TO_STRING': False,
-
-    # For integration with django-filters, sets default filter backend to use
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
-    ),
-}
-
 INSTALLED_APPS = [
     # default
     'django.contrib.admin',
@@ -46,32 +36,10 @@ INSTALLED_APPS = [
     'api',
 ]
 
-# CORS_ALLOW_ALL_ORIGINS: True
-# CORS_ALLOW_METHODS = [
-#     "DELETE",
-#     "GET",
-#     "OPTIONS",
-#     "PATCH",
-#     "POST",
-#     "PUT",
-# ]
-# CORS_ALLOW_HEADERS = [
-#     "accept",
-#     "accept-encoding",
-#     "authorization",
-#     "content-type",
-#     "dnt",
-#     "origin",
-#     "user-agent",
-#     "x-csrftoken",
-#     "x-requested-with"
-#     'access-control-allow-origin',
-# ]
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
+CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'http://localhost:8000',
-)
+    'http://127.0.0.1:3000',
+]
 
 MIDDLEWARE = [
     # CORS
@@ -138,10 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# INTERNAL_IPS = [
-#     "127.0.0.1",
-# ]
-
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -156,6 +120,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # for filters
 REST_FRAMEWORK = {
+    'COERCE_DECIMAL_TO_STRING': False,
+
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),

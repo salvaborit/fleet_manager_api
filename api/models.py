@@ -86,7 +86,9 @@ class VehicleDocumentation(models.Model):
         null=True)
     valid_thru = models.DateField(
         auto_now=False,
-        auto_now_add=False)
+        auto_now_add=False,
+        blank=True,
+        null=True)
     renovation_alert = models.DateTimeField(
         auto_now=False,
         auto_now_add=False)
@@ -114,7 +116,9 @@ class DriverDocumentation(models.Model):
         null=True)
     valid_thru = models.DateField(
         auto_now=False,
-        auto_now_add=False)
+        auto_now_add=False,
+        blank=True,
+        null=True)
     renovation_alert = models.DateTimeField(
         auto_now=False,
         auto_now_add=False)
@@ -125,3 +129,12 @@ class DriverDocumentation(models.Model):
 
     def __str__(self):
         return f'{self.title} de {self.driver}, expira en {self.valid_thru}'
+
+
+class Maintenance(models.Model):
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+    description = models.TextField(blank=True)
+    usage_at_entry = models.PositiveIntegerField()
+    next_maintenance_usage = models.PositiveIntegerField()
+    entry_date = models.DateField(auto_now=False,
+                                  auto_now_add=False)

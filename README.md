@@ -10,7 +10,6 @@ Fleet Manager is a Django-based web application that allows users to manage thei
 4. Create a database (MySQL was used) and configure it in the settings.py file.
 5. Make and run the database migrations using the commands `python manage.py makemigrations` and `python manage.py migrate`.
 6. Start the development server using the command `python manage.py runserver`.
-   S
 
 ## Endpoints
 

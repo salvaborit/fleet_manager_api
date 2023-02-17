@@ -1,24 +1,37 @@
-# Fleet Manager API
+# Fleet Manager API Backend
 
-<h3>Manage your fleet with greater efficiency and safety</h3>
+Fleet Manager is a Django-based web application that allows users to manage their fleet of vehicles and drivers, along with their respective details. This is the backend codebase for the application, built with Django REST Framework.
 
-### Team
+## Installation
 
-<ul>
-	<li>Salvador Borit</li>
-	<li>Ismael Soler</li>
-</ul>
+1. Clone the repository to your local machine.
+2. Create a virtual environment and activate it, with pipenv pipenv --python 3.11 and `pipenv shell`.
+3. Install all dependencies, with pipenv `pipenv install`.
+4. Create a database (MySQL was used) and configure it in the settings.py file.
+5. Make and run the database migrations using the commands `python manage.py makemigrations` and `python manage.py migrate`.
+6. Start the development server using the command `python manage.py runserver`.
+   S
 
-### Endpoints and Methods
+## Endpoints
 
-`vehicles/` to <b>get</b> vehicle list or <b>post</b> a new vehicle<br>
-`vehicles/1/` to <b>get</b>, <b>put</b>, or <b>delete</b> vehicle of id 1<br>
+The following API endpoints are available:
+
+`/api/status/` - GET the API status <br>
 <br>
-`drivers/` to <b>get</b> driver list or <b>post</b> a new driver<br>
-`drivers/1/` to <b>get</b>, <b>put</b>, or <b>delete</b> driver of id 1<br>
+`/api/vehicles/` - GET a list of all vehicles or CREATE a new vehicle <br>
+`/api/vehicles/<int:pk>/` - GET, PUT, or DELETE a single vehicle <br>
 <br>
-`vehicle-docs/` to <b>get</b> vehicle documentation list or <b>post</b> a new documentation<br>
-`vehicle-docs/1/` to <b>get</b>, <b>put</b>, or <b>delete</b> vehicle documentation of id 1<br>
+`/api/drivers/` - GET a list of all drivers or CREATE a new driver <br>
+`/api/drivers/<int:pk>/` - GET, PUT, or DELETE a single driver <br>
 <br>
-`driver-docs/` to <b>get</b> driver documentation list or <b>post</b> a new documentation<br>
-`driver-docs/1/` to <b>get</b>, <b>put</b>, or <b>delete</b> driver documentation of id 1<br>
+`/api/makes/` - GET a list of all makes or CREATE a new make <br>
+`/api/makes/<int:pk>/` - GET, PUT, or DELETE a single make <br>
+<br>
+`/api/models/` - GET a list of all models or CREATE a new model <br>
+`/api/models/<int:pk>/` - GET, PUT, or DELETE a single model <br>
+<br>
+`/api/locations/` - GET a list of all locations or CREATE a new location <br>
+`/api/locations/<int:pk>/` - GET, PUT, or DELETE a single location <br>
+<br>
+`/api/statuses/` - GET a list of all statuses or CREATE a new status <br>
+`/api/statuses/<int:pk>/` - GET, PUT, or DELETE a single status <br>

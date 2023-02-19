@@ -9,16 +9,16 @@ from .models import DriverDocumentation
 class VehicleFilter(filters.FilterSet):
     license_plate = filters.CharFilter(
         field_name='license_plate',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     model = filters.CharFilter(
         field_name='model',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     status = filters.CharFilter(
         field_name='status',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     usage_type = filters.CharFilter(
         field_name='usage_type',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     min_usage = filters.NumberFilter(
         field_name='usage',
         lookup_expr='gte')
@@ -27,7 +27,7 @@ class VehicleFilter(filters.FilterSet):
         lookup_expr='lte')
     notes = filters.CharFilter(
         field_name='notes',
-        lookup_expr='contains')
+        lookup_expr='icontains')
 
     class Meta:
         model = Vehicle
@@ -38,27 +38,27 @@ class VehicleFilter(filters.FilterSet):
 class DriverFilter(filters.FilterSet):
     first_name = filters.CharFilter(
         field_name='first_name',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     last_name = filters.CharFilter(
         field_name='last_name',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     address = filters.CharFilter(
         field_name='address',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     email = filters.CharFilter(
         field_name='email',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     phone = filters.CharFilter(
         field_name='phone',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     birthdate = filters.DateFilter(
         field_name='birthdate')
     id_type = filters.CharFilter(
         field_name='id_type',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     id_number = filters.CharFilter(
         field_name='id_number',
-        lookup_expr='contains')
+        lookup_expr='icontains')
 
     class Meta:
         model = Driver
@@ -69,7 +69,7 @@ class DriverFilter(filters.FilterSet):
 class VehicleDocumentationFilter(filters.FilterSet):
     title = filters.CharFilter(
         field_name='title',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     vehicle = filters.NumberFilter(
         field_name='vehicle')
     valid_thru = filters.DateFilter(
@@ -78,7 +78,7 @@ class VehicleDocumentationFilter(filters.FilterSet):
         field_name='renovation_alert')
     status = filters.CharFilter(
         field_name='status',
-        lookup_expr='contains')
+        lookup_expr='icontains')
 
     class Meta:
         model = VehicleDocumentation
@@ -89,7 +89,7 @@ class VehicleDocumentationFilter(filters.FilterSet):
 class DriverDocumentationFilter(filters.FilterSet):
     title = filters.CharFilter(
         field_name='title',
-        lookup_expr='contains')
+        lookup_expr='icontains')
     driver = filters.NumberFilter(
         field_name='driver')
     valid_thru = filters.DateFilter(
@@ -98,7 +98,7 @@ class DriverDocumentationFilter(filters.FilterSet):
         field_name='renovation_alert')
     status = filters.CharFilter(
         field_name='status',
-        lookup_expr='contains')
+        lookup_expr='icontains')
 
     class Meta:
         model = DriverDocumentation

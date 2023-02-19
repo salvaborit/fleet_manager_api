@@ -20,7 +20,7 @@ class Vehicle(models.Model):
         INACTIVE = 'IN', _('Inactivo')
 
     license_plate = models.CharField(
-        max_length=15)
+        max_length=15, unique=True)
     model = models.CharField(
         max_length=63)
     status = models.CharField(

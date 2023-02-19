@@ -1,4 +1,5 @@
 #!/bin/bash
 # first delete migrations folder
+# $1 is first arg passed : app to delete migrations from
 ./manage.py makemigrations $1 --empty
 ./manage.py makemigrations

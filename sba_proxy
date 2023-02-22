@@ -1,3 +1,4 @@
 #!/bin/bash
+systemctl stop mysql
 cd
 ./cloud_sql_proxy -instances=warm-physics-377002:southamerica-east1:fleetmanager-db:fleetmanager-db=tcp:3306

@@ -76,6 +76,7 @@ class VehicleDocumentation(models.Model):
 
     class RenovationAlert(models.IntegerChoices):
         # in days
+        NONE = 0
         FIFTEEN_DAYS = 15
         THIRTY_DAYS = 30
         FORTY_FIVE_DAYS = 45
@@ -105,6 +106,7 @@ class DriverDocumentation(models.Model):
 
     class RenovationAlert(models.IntegerChoices):
         # in days
+        NONE = 0
         FIFTEEN_DAYS = 15
         THIRTY_DAYS = 30
         FORTY_FIVE_DAYS = 45

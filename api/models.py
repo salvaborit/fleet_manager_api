@@ -74,61 +74,59 @@ class Driver(models.Model):
 class VehicleDocumentation(models.Model):
     """ Vehicle Documentation model """
 
-    class StatusChoices(models.TextChoices):
-        """ Choices for the status of the vehicle documentation """
-        VALID = 'VAL', _('Valido')
-        EXPIRED = 'EXP', _('Expirado')
+    class RenovationAlert(models.IntegerChoices):
+        # in days
+        FIFTEEN_DAYS = 15
+        THIRTY_DAYS = 30
+        FORTY_FIVE_DAYS = 45
+        SIXTY_DAYS = 60
 
     title = models.CharField(max_length=255)
     vehicle = models.ForeignKey(
         Vehicle,
         on_delete=models.CASCADE,
         null=True)
-    valid_thru = models.DateField(
+    expiry = models.DateField(
         auto_now=False,
         auto_now_add=False,
         blank=True,
         null=True)
-    renovation_alert = models.DateTimeField(
-        auto_now=False,
-        auto_now_add=False)
-    status = models.CharField(
-        max_length=3,
-        choices=StatusChoices.choices,
-        default=StatusChoices.VALID)
+    renovation_alert = models.IntegerField(
+        choices=RenovationAlert.choices,
+        null=True,
+        blank=True)
 
     def __str__(self):
-        return f'{self.title} de {self.vehicle}, expira en {self.valid_thru}'
+        return f'{self.title} de {self.vehicle}, expira en {self.expiry}'
 
 
 class DriverDocumentation(models.Model):
     """ Driver Documentation model """
 
-    class StatusChoices(models.TextChoices):
-        """ Choices for the status of the driver documentation """
-        VALID = 'VAL', _('Valido')
-        EXPIRED = 'EXP', _('Expirado')
+    class RenovationAlert(models.IntegerChoices):
+        # in days
+        FIFTEEN_DAYS = 15
+        THIRTY_DAYS = 30
+        FORTY_FIVE_DAYS = 45
+        SIXTY_DAYS = 60
 
     title = models.CharField(max_length=256)
     driver = models.ForeignKey(
         Driver,
         on_delete=models.CASCADE,
         null=True)
-    valid_thru = models.DateField(
+    expiry = models.DateField(
         auto_now=False,
         auto_now_add=False,
         blank=True,
         null=True)
-    renovation_alert = models.DateTimeField(
-        auto_now=False,
-        auto_now_add=False)
-    status = models.CharField(
-        max_length=3,
-        choices=StatusChoices.choices,
-        default=StatusChoices.VALID)
+    renovation_alert = models.IntegerField(
+        choices=RenovationAlert.choices,
+        null=True,
+        blank=True)
 
     def __str__(self):
-        return f'{self.title} de {self.driver}, expira en {self.valid_thru}'
+        return f'{self.title} de {self.driver}, expira en {self.expiry}'
 
 
 class Maintenance(models.Model):

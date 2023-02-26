@@ -15,7 +15,6 @@ import json
 #         print(f'{resp.status_code}')
 
 
-# print(f'\n\nDRIVERS')
 # with open(file_drivers, 'r') as file:
 #     obj_list = json.load(file)
 #     for item in obj_list:
@@ -23,7 +22,20 @@ import json
 #         print(f'{resp.status_code}')
 
 
-json_file = 'fleet_manager_documentations(1).json'
+print(f'\n\nDRIVER DOCS')
+json_file = 'fleet_manager_driver_docs.json'
+url = 'http://localhost:8000/driver-docs/'
+
+
+with open(json_file, 'r') as file:
+    obj_list = json.load(file)
+    for item in obj_list:
+        resp = requests.post(url, item)
+        print(f'{resp.status_code}')
+
+
+print(f'\n\VEHICLE DOCS')
+json_file = 'fleet_manager_vehicle_docs.json'
 url = 'http://localhost:8000/vehicle-docs/'
 
 

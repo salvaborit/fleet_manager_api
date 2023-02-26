@@ -72,18 +72,15 @@ class VehicleDocumentationFilter(filters.FilterSet):
         lookup_expr='icontains')
     vehicle = filters.NumberFilter(
         field_name='vehicle')
-    valid_thru = filters.DateFilter(
-        field_name='valid_thru')
-    renovation_alert = filters.DateTimeFilter(
+    expiry = filters.DateFilter(
+        field_name='expiry')
+    renovation_alert = filters.NumberFilter(
         field_name='renovation_alert')
-    status = filters.CharFilter(
-        field_name='status',
-        lookup_expr='icontains')
 
     class Meta:
         model = VehicleDocumentation
-        fields = ['title', 'vehicle', 'valid_thru',
-                  'renovation_alert', 'status']
+        fields = ['title', 'vehicle', 'expiry',
+                  'renovation_alert']
 
 
 class DriverDocumentationFilter(filters.FilterSet):
@@ -92,15 +89,12 @@ class DriverDocumentationFilter(filters.FilterSet):
         lookup_expr='icontains')
     driver = filters.NumberFilter(
         field_name='driver')
-    valid_thru = filters.DateFilter(
-        field_name='valid_thru')
-    renovation_alert = filters.DateTimeFilter(
+    expiry = filters.DateFilter(
+        field_name='expiry')
+    renovation_alert = filters.NumberFilter(
         field_name='renovation_alert')
-    status = filters.CharFilter(
-        field_name='status',
-        lookup_expr='icontains')
 
     class Meta:
         model = DriverDocumentation
-        fields = ['title', 'driver', 'valid_thru',
-                  'renovation_alert', 'status']
+        fields = ['title', 'driver', 'expiry',
+                  'renovation_alert']

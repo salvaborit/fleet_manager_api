@@ -93,7 +93,7 @@ class VehicleDocumentation(models.Model):
         blank=True,
         null=True)
     renovation_alert = models.IntegerField(
-        choices=RenovationAlert.choices,
+        # choices=RenovationAlert.choices,
         null=True,
         blank=True)
 

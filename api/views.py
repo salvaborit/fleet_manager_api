@@ -1,23 +1,9 @@
 from rest_framework.viewsets import ModelViewSet
 from django_filters import rest_framework as filters
-
-from .models import Vehicle
-from .models import Driver
-from .models import VehicleDocumentation
-from .models import DriverDocumentation
-
-from .serializers import VehicleSerializer
-from .serializers import DriverSerializer
-from .serializers import VehicleDocumentationSerializer
-from .serializers import DriverDocumentationSerializer
-
-from .filters import VehicleFilter
-from .filters import VehicleDocumentationFilter
-from .filters import DriverFilter
-from .filters import DriverDocumentationFilter
-
+from .models import Vehicle, DriverDocumentation, Driver, VehicleDocumentation
+from .serializers import VehicleSerializer, DriverDocumentationSerializer, VehicleDocumentationSerializer, DriverSerializer
+from .filters import VehicleFilter, DriverDocumentationFilter, VehicleDocumentationFilter, DriverFilter
 from rest_framework import generics
-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
